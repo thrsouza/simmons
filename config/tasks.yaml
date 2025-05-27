@@ -63,6 +63,6 @@ publish_and_distribute_documentation:
     Documentação disponível em ambiente oficial, bem estruturada, com versionamento e canal de feedback.
 
   output_file: >
-    {output_path}/{output_file_name}.md
+    {output_path}/{output_filename}
 
   agent: documentation_publisher
