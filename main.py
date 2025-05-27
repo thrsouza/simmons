@@ -28,8 +28,8 @@ def main():
     with open(args.file, "r", encoding='utf-8') as file:
         run_crew(
             transcription=file.read(),
-            output_path=os.getcwd(),
-            output_filename="output.md")
+            output_path=f"{os.getcwd()}/output",
+            output_filename=f"{file.name.split('.')[0].upper()}_OUTPUT.md")
 
 
 if __name__ == "__main__":
