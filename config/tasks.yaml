@@ -1,0 +1,68 @@
+extract_outline_from_transcription:
+  description: >
+    Ler a transcrição do vídeo dentro da tag `transcription` e identificar os principais tópicos técnicos,
+    removendo ruídos e organizando-os em uma estrutura clara e hierárquica.
+
+    <transcription>
+      {transcription}
+    </transcription>
+
+  expected_output: >
+    Um outline técnico organizado, contendo tópicos e subtópicos representativos da conversa original.
+
+  agent: technical_content_analyst
+
+
+expand_and_validate_technical_details:
+  description: >
+    Revisar o outline, adicionar explicações técnicas aprofundadas, decisões arquiteturais e, se necessário, exemplos de código.
+
+    Toda a revisão deve levar em consideração a transcrição original dentro da tag `transcription`, garantindo que o conteúdo seja preciso e completo.
+
+    Tratamento do conteúdo:
+    - Elimine repetições, vícios de linguagem e interjeições típicas da fala.
+    - Reescreva frases para maior clareza e fluidez, sem alterar o significado técnico.
+    - Reorganize o conteúdo, se necessário, para melhorar o encadeamento lógico dos temas.
+    - Corrija erros conceituais, se identificar algum.
+
+    <transcription>
+      {transcription}
+    </transcription>
+
+  expected_output: >
+    Documento enriquecido com detalhes técnicos precisos, validado pelo especialista que participou da passagem de conhecimento.
+
+  agent: senior_software_architect
+
+
+refine_for_clarity_and_structure:
+  description: >
+    Reescrever e ajustar o material técnico para melhorar clareza, fluidez e consistência, aplicando boas práticas de documentação.
+
+  expected_output: >
+    Documento coeso, claro, com vocabulário padronizado e adequado para consumo por diferentes níveis técnicos.
+
+  agent: technical_writer
+
+
+perform_peer_review_and_feedback:
+  description: >
+    Analisar o material do ponto de vista técnico e didático, garantindo que o conteúdo seja preciso e compreensível para o público-alvo.
+
+  expected_output: >
+    Versão revisada da documentação, com sugestões implementadas e validação da qualidade final.
+
+  agent: peer_reviewer
+
+
+publish_and_distribute_documentation:
+  description: >
+    Publicar o conteúdo final em plataforma apropriada, garantir versionamento, formatar adequadamente e comunicar ao time.
+
+  expected_output: >
+    Documentação disponível em ambiente oficial, bem estruturada, com versionamento e canal de feedback.
+
+  output_file: >
+    {output_path}/{output_file_name}.md
+
+  agent: documentation_publisher
