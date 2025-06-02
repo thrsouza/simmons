@@ -1,103 +1,172 @@
-# Richards
+# 🎯 Simmons
 
-Uma ferramenta de geração de documentação técnica baseada em transcrições de vídeos, utilizando IA para transformar
-conhecimento verbal em documentação estruturada e clara.
+[![Python](https://img.shields.io/badge/Python->=3.10,<3.13-blue.svg)](https://python.org)
+[![CrewAI](https://img.shields.io/badge/CrewAI-0.121.1+-orange.svg)](https://github.com/joaomdmoura/crewai)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## 📋 Sobre o Projeto
+**A technical documentation generation tool that transforms video transcripts into clear, structured documentation using AI.**
 
-O Richards é um sistema baseado em CrewAI que utiliza múltiplos agentes especializados para processar transcrições de vídeos
-técnicos e gerar documentação de alta qualidade. O projeto automatiza o processo de transformação de conhecimento tácito
-(passado verbalmente) em documentação explícita e acessível.
+Simmons leverages the power of AI agents to convert verbal knowledge from video transcriptions into professional, well-formatted technical documentation. Perfect for creating documentation from recorded meetings, tutorials, technical presentations, and educational content.
 
-## 🏗️ Arquitetura
+## ✨ Features
 
-O sistema é composto por 5 agentes especializados que trabalham em sequência:
+- 🤖 **AI-Powered Processing**: Uses multiple specialized AI agents for content creation, review, and formatting
+- 📝 **Multi-Language Support**: Generate documentation in multiple languages
+- 🔄 **Sequential Workflow**: Technical writer → Content reviewer → Markdown specialist
+- 📋 **Structured Output**: Creates well-formatted Markdown documentation with proper sections
+- 🎯 **Topic-Focused**: Tailors content generation to specific technical topics
+- 🚀 **Command Line Interface**: Easy-to-use CLI for quick processing
 
-1. **Analista de Conteúdo Técnico** - Extrai e estrutura tópicos principais
-2. **Arquiteto de Software Sênior** - Valida e expande detalhes técnicos
-3. **Redator Técnico** - Refina linguagem e estrutura para clareza
-4. **Revisor** - Valida precisão técnica e compreensibilidade
-5. **Publicador de Documentação** - Prepara e formata o material final
+## 🏗️ Architecture
 
-## 🚀 Instalação
+Simmons uses the CrewAI framework to orchestrate three specialized AI agents:
 
-### Pré-requisitos
+1. **Technical Content Writer**: Interprets and restructures transcription content into clear, technical language
+2. **Content Reviewer**: Reviews and refines the content for clarity and technical accuracy
+3. **Markdown Specialist**: Converts the reviewed content into well-formatted Markdown documentation
 
-- Python 3.12+
-- UV (gerenciador de pacotes Python)
+## 🚀 Quick Start
 
-### Configuração
+### Prerequisites
 
-1. Clone o repositório:
+- Python 3.12 or higher
+- An OpenAI API key (for GPT-4o-mini model)
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/thrsouza/simmons.git
+   cd simmons
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   # Using uv (recommended)
+   uv sync
+
+   # Or using pip
+   pip install -e .
+   ```
+
+3. **Set up your OpenAI API key**:
+   ```bash
+   export OPENAI_API_KEY="your-api-key-here"
+   ```
+
+### Basic Usage
+
 ```bash
-git clone https://github.com/thrsouza/richards.git
-cd richards
+# Generate documentation from a transcript file
+python -m simmons.main -t "Python Programming" -f transcript.txt -l "en-US"
+
+# Or using the installed package
+simmons -t "Docker Containers" -f meeting_transcript.txt -l "pt-BR"
 ```
 
-2. Instale as dependências:
-```bash
-uv sync
-```
+### Parameters
 
-3. Configure as variáveis de ambiente:
-```bash
-cp .env.sample .env
-# Edite o arquivo .env com sua chave da API OpenAI
-```
+- `-t, --topic`: Topic for the documentation generation (e.g., "Python Programming", "Docker Containers")
+- `-f, --file`: Path to the transcription file (required)
+- `-l, --language`: Language for the documentation (default: "en-US")
 
-## 💻 Uso
+## 📖 Usage Examples
 
-Execute o comando passando o arquivo de transcrição:
+### Example 1: Technical Tutorial Documentation
 
 ```bash
-python main.py <caminho-para-arquivo-transcricao>
+python -m simmons.main \
+  --topic "REST API Development" \
+  --file tutorial_transcript.txt \
+  --language "en-US"
 ```
 
-### Exemplo:
+This will generate a file named `REST API Development.md` with structured documentation.
+
+### Example 2: Meeting Notes in Portuguese
+
 ```bash
-python main.py transcricao_video_tecnico.txt
+python -m simmons.main \
+  --topic "Arquitetura de Microsserviços" \
+  --file reuniao_transcript.txt \
+  --language "pt-BR"
 ```
 
-O sistema irá:
-1. Processar a transcrição através dos 5 agentes
-2. Gerar documentação estruturada
-3. Salvar o resultado como `output.md` no diretório atual
+### Example 3: Workshop Documentation
 
-## 📁 Estrutura do Projeto
-
-```
-richards/
-├── config/
-│   ├── agents.yaml      # Configuração dos agentes
-│   └── tasks.yaml       # Configuração das tarefas
-├── knowledge/           # Base de conhecimento (arquivos de referência)
-├── crew.py             # Definição da crew e agentes
-├── main.py             # Ponto de entrada da aplicação
-├── pyproject.toml      # Configuração do projeto
-└── README.md
+```bash
+python -m simmons.main \
+  --topic "Machine Learning Fundamentals" \
+  --file workshop_transcript.txt \
+  --language "en-US"
 ```
 
-## ⚙️ Configuração
+## 📄 Input Format
 
-### Variáveis de Ambiente
+Simmons accepts plain text transcription files. The transcription should contain:
 
-- `OPENAI_API_KEY`: Sua chave da API OpenAI
+- Spoken content from videos, meetings, or presentations
+- Natural language explanations of technical concepts
+- Any verbal knowledge you want to convert to documentation
 
-### Base de Conhecimento
+**Example transcript file**:
+```
+So today we're going to talk about Docker containers. Docker is a containerization platform that allows you to package applications with their dependencies. Let me explain how this works...
+```
 
-Adicione arquivos de referência na pasta `knowledge/` para enriquecer o contexto dos agentes durante o processamento.
+## 📊 Output Format
 
-## 🎯 Casos de Uso
+Simmons generates Markdown documentation with the following structure:
 
-- Transformar sessões de code review em documentação
-- Converter explicações técnicas em guias estruturados
-- Documentar decisões arquiteturais discutidas em reuniões
-- Criar tutoriais a partir de demos e apresentações técnicas
+```markdown
+# 🎯 [Topic Name]
 
-## 🤝 Contribuição
+**📋 TL;DR**
+- Summary point 1
+- Summary point 2
+- Summary point 3
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+## 📝 [Section Title]
+Content with proper formatting...
 
-## 📄 Licença
+## 🔧 [Another Section]
+More structured content...
+```
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+## 🛠️ Configuration
+
+The AI agents are configured through YAML files in `src/simmons/config/`:
+
+- `agents.yaml`: Defines the roles, goals, and backstories of the AI agents
+- `tasks.yaml`: Defines the tasks each agent performs and their expected outputs
+
+You can customize these configurations to adjust the behavior and output style of the generated documentation.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Thiago Souza**
+- Email: dev@thiagosouza.com
+- GitHub: [@thrsouza](https://github.com/thrsouza)
+
+## 🙏 Acknowledgments
+
+- [CrewAI](https://github.com/crewAIInc/crewAI) - For the amazing AI agent framework
+- [OpenAI](https://openai.com) - For providing the GPT-4o-mini model
+
+---
+
+**Made with ❤️ for the developer community**

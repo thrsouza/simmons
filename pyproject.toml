@@ -1,9 +1,15 @@
 [project]
-name = "richards"
+name = "simmons"
 version = "0.1.0"
-description = "Add your description here"
+description = "A technical documentation generation tool based on video transcripts, using IA to convert verbal knowledge into clear and structured documentation."
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "crewai[tools]>=0.121.0",
+requires-python = ">=3.10,<3.13"
+authors = [
+    { name = "Thiago Souza", email = "dev@thiagosouza.com" }
 ]
+dependencies = [
+    "crewai[tools]>=0.121.1",
+]
+
+[project.scripts]
+simmons = "simmons.main:main"

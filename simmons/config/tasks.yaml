@@ -1,0 +1,63 @@
+write_technical_content_task:
+  description: >
+    Write technical content based on transcription delimited by <video_transcription> tag.
+    Ensuring clarity, precision, and technical accuracy about {topic}.
+
+    Rules:
+    - Reorganize the content to create a coherent and structured text.
+    - Include explanations, definitions, and examples when the original content is not clear.
+    - Use technical language appropriate for the audience.
+    - Maintain terminological consistency with the original content.
+    - Ensure the text is clear, precise, and technically accurate.
+    - Use the transcription as the primary source of information.
+    - Avoid adding personal opinions or interpretations that deviate from the original content.
+    - Add contextual emojis at the beginning of all titles to improve visual appeal.
+    - Add one simple blank space between emojis and titles.
+    - All section titles must be in {language} and formatted using '##'.
+    - The main title must to be omitted.
+    - Don't use '---' between sections.
+
+    <video_transcription>
+      {transcription}
+    </video_transcription>
+
+  expected_output: >
+    A well-structured and technically accurate text that interprets and restructures the content of the video transcription.
+  agent: technical_content_writer
+
+review_content_task:
+  description: >
+    Review the text produced by the technical content writer, ensuring it is clear, precise, and technically accurate.
+
+    Rules:
+    - Check for clarity and precision in the language used.
+    - Ensure technical accuracy and terminological consistency with the original content.
+    - Identify and correct any inconsistencies or ambiguities in the text.
+    - Feel free to apply improvements where necessary.
+    - Maintain the original intent and meaning of the content.
+
+  expected_output: >
+    A revised version of the text that meets high standards of clarity and technical accuracy.
+  agent: content_reviewer
+
+convert_to_markdown_task:
+  description: >
+    Convert the text produced by the technical content writer and content reviewer into a well-structured and formatted Markdown document.
+
+    Rules:
+    - Ensure proper Markdown formatting for headings, lists, code blocks, and other elements.
+    - Maintain the structure and clarity of the content while applying Markdown conventions.
+    - Ensure that the final document is visually appealing and easy to read.
+    - Make sure to add a blank line after main title and section titles.
+
+  expected_output: >
+    A well-formatted Markdown document, without '```', that enhances the readability of the technical content:
+
+    # 🎯 {topic}
+
+    **📋 TL;DR**
+    [Summary of the content in 2-3 bullet points]
+
+    [MAIN CONTENT FULLY FORMATTED AND POLISHED]
+
+  agent: markdown_specialist
