@@ -11,11 +11,12 @@ write_technical_content_task:
     - Ensure the text is clear, precise, and technically accurate.
     - Use the transcription as the primary source of information.
     - Avoid adding personal opinions or interpretations that deviate from the original content.
-    - Add contextual emojis at the beginning of all titles to improve visual appeal.
-    - Add one simple blank space between emojis and titles.
+    - Use contextual emojis at the beginning of all titles to improve visual appeal.
+    - Use one simple blank space between emojis and titles.
     - All section titles must be in {language} and formatted using '##'.
     - The main title must to be omitted.
-    - Don't use '---' between sections.
+    - Do not use '---' between sections.
+    - Use bullet points for lists and key points to enhance readability always that is possible.
 
     <video_transcription>
       {transcription}
