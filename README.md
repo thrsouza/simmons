@@ -11,19 +11,27 @@ Simmons leverages the power of AI agents to convert verbal knowledge from video 
 ## ✨ Features
 
 - 🤖 **AI-Powered Processing**: Uses multiple specialized AI agents for content creation, review, and formatting
+- 🧠 **Advanced Reasoning**: Enhanced AI reasoning capabilities for optimal content generation and formatting
 - 📝 **Multi-Language Support**: Generate documentation in multiple languages
 - 🔄 **Sequential Workflow**: Technical writer → Content reviewer → Markdown specialist
 - 📋 **Structured Output**: Creates well-formatted Markdown documentation with proper sections
 - 🎯 **Topic-Focused**: Tailors content generation to specific technical topics
+- 📊 **Comprehensive Coverage**: Automatically captures all topics mentioned in transcriptions, including implicit ones
 - 🚀 **Command Line Interface**: Easy-to-use CLI for quick processing
 
 ## 🏗️ Architecture
 
-Simmons uses the CrewAI framework to orchestrate three specialized AI agents:
+Simmons uses the CrewAI framework to orchestrate three specialized AI agents with enhanced reasoning capabilities:
 
-1. **Technical Content Writer**: Interprets and restructures transcription content into clear, technical language
+1. **Technical Content Writer**: Interprets and restructures transcription content into clear, technical language with advanced reasoning
 2. **Content Reviewer**: Reviews and refines the content for clarity and technical accuracy
-3. **Markdown Specialist**: Converts the reviewed content into well-formatted Markdown documentation
+3. **Markdown Specialist**: Converts the reviewed content into well-formatted Markdown documentation with reasoning-based optimization
+
+### 🧠 AI Agent Features
+
+- **Enhanced Reasoning**: Technical Content Writer and Markdown Specialist agents use advanced reasoning with up to 3 attempts for optimal results
+- **Comprehensive Coverage**: Automatically includes all topics mentioned in transcriptions, even implicit ones
+- **Quality Assurance**: Multi-layer review process ensures technical accuracy and clarity
 
 ## 🚀 Quick Start
 
@@ -135,10 +143,16 @@ More structured content...
 
 ## 🛠️ Configuration
 
-The AI agents are configured through YAML files in `src/simmons/config/`:
+The AI agents are configured through YAML files in `simmons/config/`:
 
 - `agents.yaml`: Defines the roles, goals, and backstories of the AI agents
-- `tasks.yaml`: Defines the tasks each agent performs and their expected outputs
+- `tasks.yaml`: Defines the tasks each agent performs, their expected outputs, and processing rules
+
+### Recent Improvements
+
+- **Enhanced Topic Coverage**: The system now automatically includes all topics mentioned in transcriptions, even if not explicitly stated as section titles
+- **Improved Model Configuration**: Updated to use explicit OpenAI model specification (`openai/gpt-4o-mini`) for better reliability
+- **Advanced Reasoning**: Technical Content Writer and Markdown Specialist agents now use reasoning capabilities with multiple attempts for optimal results
 
 You can customize these configurations to adjust the behavior and output style of the generated documentation.
 

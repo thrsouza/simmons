@@ -4,7 +4,7 @@ from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 
 # Define LLM configuration
-llm = LLM(model="gpt-4o-mini", temperature=0)
+llm = LLM(model="openai/gpt-4o-mini", temperature=0)
 
 @CrewBase
 class SimonsCrew():

@@ -17,6 +17,7 @@ write_technical_content_task:
     - The main title must to be omitted.
     - Do not use '---' between sections.
     - Use bullet points for lists and key points to enhance readability always that is possible.
+    - Ensure to include all topics mentioned in the transcription, even if they are not explicitly stated as section titles.
 
     <video_transcription>
       {transcription}
