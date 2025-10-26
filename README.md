@@ -1,7 +1,7 @@
 # 🎯 Simmons
 
 [![Python](https://img.shields.io/badge/Python->=3.10,<3.14-blue.svg)](https://python.org)
-[![CrewAI](https://img.shields.io/badge/CrewAI-0.126.0+-orange.svg)](https://github.com/joaomdmoura/crewai)
+[![CrewAI](https://img.shields.io/badge/CrewAI-1.2.0+-orange.svg)](https://github.com/joaomdmoura/crewai)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 **A technical documentation generation tool that transforms video transcripts into clear, structured documentation using AI.**

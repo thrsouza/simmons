@@ -51,6 +51,10 @@ convert_to_markdown_task:
     - Maintain the structure and clarity of the content while applying Markdown conventions.
     - Ensure that the final document is visually appealing and easy to read.
     - Make sure to add a blank line after main title and section titles.
+    - Only the main title should be formatted as '#' and the section titles should be formatted as '##'.
+    - Section sub-titles should be formatted as '###'.
+    - Don't use '---' between sections.
+    - If any code block is present, it should be formatted as '```' and the language should be specified.
 
   expected_output: >
     A well-formatted Markdown document, without '```', that enhances the readability of the technical content:
@@ -60,6 +64,16 @@ convert_to_markdown_task:
     **📋 TL;DR**
     [Summary of the content in 2-3 bullet points]
 
-    [MAIN CONTENT FULLY FORMATTED AND POLISHED]
+    ## [EMOJI] [SECTION TITLE 1]
+
+    [CONTENT 1]
+
+    ## [EMOJI] [SECTION TITLE 2]
+
+    [CONTENT 2]
+
+    ## [EMOJI] [SECTION TITLE N]
+
+    [CONTENT N]
 
   agent: markdown_specialist

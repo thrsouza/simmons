@@ -8,7 +8,7 @@ authors = [
     { name = "Thiago Souza", email = "dev@thiagosouza.com" }
 ]
 dependencies = [
-    "crewai[tools]>=0.126.0",
+    "crewai[tools]>=1.2.0",
 ]
 
 [project.scripts]
